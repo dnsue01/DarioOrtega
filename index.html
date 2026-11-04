@@ -325,7 +325,7 @@ button { font: inherit; color: inherit; }
 .campana__cab h3 { font-size: clamp(2.5rem, 6vw, 5rem); }
 .campana__credito { color: var(--color-texto-2); margin-top: var(--sp-2); }
 .campana__ctrl { display: flex; align-items: center; gap: var(--sp-2); }
-.contador { min-width: 5ch; font-weight: 500; }
+.contador { min-width: 5ch; font-weight: 500; white-space: nowrap; }
 .flecha {
   display: grid; place-items: center; width: 44px; height: 44px;
   border: 1px solid var(--tinta); background: none; cursor: pointer;
@@ -334,7 +334,6 @@ button { font: inherit; color: inherit; }
 .flecha:active:not(:disabled) { transform: scale(0.96); }
 .flecha:disabled { opacity: 0.35; cursor: default; }
 @media (hover: hover) and (pointer: fine) { .flecha:hover:not(:disabled) { background: var(--tinta); color: var(--blanco); } }
-.campana.sin-scroll .flecha { display: none; }
 .carril {
   --borde: max(var(--margen), calc((100vw - var(--ancho)) / 2 + var(--margen)));
   position: relative; display: flex; gap: var(--sp-4);
@@ -365,7 +364,6 @@ button { font: inherit; color: inherit; }
 }
 @media (hover: none) and (pointer: coarse) {
   .campana__cab { flex-wrap: nowrap; align-items: baseline; }
-  .campana__ctrl .flecha { display: none; }
   .contador { text-align: right; }
 }
 
@@ -394,7 +392,7 @@ button { font: inherit; color: inherit; }
 
 /* Digitals */
 .digitals__grid {
-  display: grid; gap: var(--sp-4); grid-auto-flow: column; grid-auto-columns: 78%;
+  display: grid; gap: var(--sp-4); grid-auto-flow: column; grid-auto-columns: 78vw;
   overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: var(--margen);
   list-style: none; margin-inline: calc(var(--margen) * -1); padding: 0 var(--margen) var(--sp-4);
   scrollbar-width: thin; scrollbar-color: var(--tinta) transparent;
@@ -402,6 +400,12 @@ button { font: inherit; color: inherit; }
 .digitals__grid li { scroll-snap-align: start; }
 .digitals__grid img { width: 100%; }
 @media (min-width: 900px), (orientation: landscape) and (max-height: 500px) { .digitals__grid { grid-auto-flow: row; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; margin-inline: 0; padding-inline: 0; } }
+
+.campana, #digitals { overflow-x: clip; }
+.desliza { width: max-content; overflow: visible; padding: 0; animation: desliza var(--dur) linear infinite; }
+@media (hover: hover) and (pointer: fine) { .desliza:hover { animation-play-state: paused; } }
+:not(.desliza) > [data-clon] { display: none; }
+@keyframes desliza { to { transform: translateX(var(--viaje)); } }
 
 /* Booking */
 .booking { background: var(--amarillo); padding-block: var(--sp-11) var(--sp-9); }
@@ -557,7 +561,7 @@ button { font: inherit; color: inherit; }
         <p>Campañas y catálogos de su book en Blow Models. Pulsa una foto para verla a pantalla completa.</p>
       </header>
       <ul class="indice">
-        <li><a href="#running" data-preview="fotos/running-1.jpg"><span class="indice__cliente display">Running Emotion</span><span class="indice__meta">2 vídeos y 2 fotos · julio 2026</span></a></li>
+        <li><a href="#running" data-preview="fotos/running-1.jpg"><span class="indice__cliente display">Running Emotion</span><span class="indice__meta">2 vídeos y 1 foto · julio 2026</span></a></li>
         <li><a href="#bluebanana" data-preview="fotos/bluebanana-1-800.jpg"><span class="indice__cliente display">Blue Banana</span><span class="indice__meta">4 fotos · Dolomitas, julio 2026</span></a></li>
         <li><a href="#victoria" data-preview="fotos/victoria-5.jpg"><span class="indice__cliente display">Victoria Shoes</span><span class="indice__meta">5 fotos · con Javi Antón</span></a></li>
         <li><a href="#pleto" data-preview="fotos/pleto-1.jpg"><span class="indice__cliente display">Pleto</span><span class="indice__meta">5 fotos · con Eren Saračević · abril 2026</span></a></li>
@@ -578,14 +582,11 @@ button { font: inherit; color: inherit; }
             <p class="campana__credito">Publicidad en Instagram, julio de 2026</p>
           </div>
           <div class="campana__ctrl">
-            <span class="contador tabular" aria-live="polite">1 / 4</span>
-            <button class="flecha" type="button" aria-label="Foto anterior" data-dir="-1">←</button>
-            <button class="flecha" type="button" aria-label="Foto siguiente" data-dir="1">→</button>
+            <span class="contador">2 vídeos, 1 foto</span>
           </div>
         </div>
         <ul class="carril">
           <li><button class="clip" type="button" data-desc="Dario saltando vallas en una pista de atletismo, con camiseta blanca de tirantes"><video src="videos/running-1.mp4" poster="fotos/running-v1.jpg" width="720" height="960" muted loop playsinline preload="none" aria-hidden="true"></video><span class="clip__estado" aria-hidden="true">Pausar</span></button></li>
-          <li><button class="zoom" type="button"><img src="fotos/running-2.jpg" srcset="fotos/running-2-800.jpg 800w, fotos/running-2.jpg 1200w" sizes="(max-width: 899px) 80vw, 600px" width="1200" height="1600" loading="lazy" alt="Dario fotografiado desde arriba con gafas de sol rojas y camiseta blanca de tirantes"></button></li>
           <li><button class="zoom" type="button"><img src="fotos/running-3.jpg" srcset="fotos/running-3-800.jpg 800w, fotos/running-3.jpg 1200w" sizes="(max-width: 899px) 80vw, 600px" width="1200" height="1600" loading="lazy" alt="Dario haciéndose una foto con el brazo extendido en mitad de una pista azul"></button></li>
           <li><button class="clip" type="button" data-desc="Dario tumbado bajo un grifo de agua después de entrenar"><video src="videos/running-2.mp4" poster="fotos/running-v2.jpg" width="720" height="960" muted loop playsinline preload="none" aria-hidden="true"></video><span class="clip__estado" aria-hidden="true">Pausar</span></button></li>
         </ul>
@@ -598,9 +599,7 @@ button { font: inherit; color: inherit; }
             <p class="campana__credito">Dolomitas, julio de 2026 · Fotos del Instagram de Dario</p>
           </div>
           <div class="campana__ctrl">
-            <span class="contador tabular" aria-live="polite">1 / 4</span>
-            <button class="flecha" type="button" aria-label="Foto anterior" data-dir="-1">←</button>
-            <button class="flecha" type="button" aria-label="Foto siguiente" data-dir="1">→</button>
+            <span class="contador">4 fotos</span>
           </div>
         </div>
         <ul class="carril">
@@ -618,9 +617,7 @@ button { font: inherit; color: inherit; }
             <p class="campana__credito">Con Javi Antón · Estilismo: Sara Arroyo · © 2025 Sopa de ganso Estudio</p>
           </div>
           <div class="campana__ctrl">
-            <span class="contador tabular" aria-live="polite">1 / 5</span>
-            <button class="flecha" type="button" aria-label="Foto anterior" data-dir="-1">←</button>
-            <button class="flecha" type="button" aria-label="Foto siguiente" data-dir="1">→</button>
+            <span class="contador">5 fotos</span>
           </div>
         </div>
         <ul class="carril">
@@ -639,9 +636,7 @@ button { font: inherit; color: inherit; }
             <p class="campana__credito">Con Eren Saračević, abril de 2026</p>
           </div>
           <div class="campana__ctrl">
-            <span class="contador tabular" aria-live="polite">1 / 5</span>
-            <button class="flecha" type="button" aria-label="Foto anterior" data-dir="-1">←</button>
-            <button class="flecha" type="button" aria-label="Foto siguiente" data-dir="1">→</button>
+            <span class="contador">5 fotos</span>
           </div>
         </div>
         <ul class="carril">
@@ -660,9 +655,7 @@ button { font: inherit; color: inherit; }
             <p class="campana__credito">Calcetines técnicos de running, Barcelona</p>
           </div>
           <div class="campana__ctrl">
-            <span class="contador tabular" aria-live="polite">1 / 2</span>
-            <button class="flecha" type="button" aria-label="Foto anterior" data-dir="-1">←</button>
-            <button class="flecha" type="button" aria-label="Foto siguiente" data-dir="1">→</button>
+            <span class="contador">2 fotos</span>
           </div>
         </div>
         <ul class="carril">
@@ -677,7 +670,7 @@ button { font: inherit; color: inherit; }
             <h3 id="adidas-t" class="display">Adidas</h3>
           </div>
           <div class="campana__ctrl">
-            <span class="contador tabular" aria-live="polite">1 foto</span>
+            <span class="contador">1 foto</span>
           </div>
         </div>
         <ul class="carril">
@@ -689,9 +682,7 @@ button { font: inherit; color: inherit; }
         <div class="contenedor campana__cab">
           <div><h3 id="lopez-t" class="display">Lopez</h3></div>
           <div class="campana__ctrl">
-            <span class="contador tabular" aria-live="polite">1 / 3</span>
-            <button class="flecha" type="button" aria-label="Foto anterior" data-dir="-1">←</button>
-            <button class="flecha" type="button" aria-label="Foto siguiente" data-dir="1">→</button>
+            <span class="contador">3 fotos</span>
           </div>
         </div>
         <ul class="carril">
@@ -826,43 +817,6 @@ button { font: inherit; color: inherit; }
   }, { rootMargin: '-45% 0px -50% 0px' });
   ['top', 'ficha', 'trabajos', 'editorial', 'digitals', 'booking'].forEach((id) => espia.observe(document.getElementById(id)));
 
-  document.querySelectorAll('.campana').forEach((campana) => {
-    const carril = campana.querySelector('.carril');
-    const items = [...carril.children];
-    const contador = campana.querySelector('.contador');
-    const [prev, next] = campana.querySelectorAll('.campana__ctrl .flecha');
-    const relleno = () => parseFloat(getComputedStyle(carril).scrollPaddingLeft) || 0;
-    const actual = () => {
-      const max = carril.scrollWidth - carril.clientWidth;
-      if (carril.scrollLeft >= max - 2) return items.length - 1;
-      const x = carril.scrollLeft + relleno();
-      let mejor = 0;
-      items.forEach((it, i) => {
-        if (Math.abs(it.offsetLeft - x) < Math.abs(items[mejor].offsetLeft - x)) mejor = i;
-      });
-      return mejor;
-    };
-    const pintar = () => {
-      const max = carril.scrollWidth - carril.clientWidth;
-      const sinScroll = max <= 2;
-      campana.classList.toggle('sin-scroll', sinScroll);
-      contador.textContent = sinScroll ? `${items.length} ${items.length === 1 ? 'foto' : 'fotos'}` : `${actual() + 1} / ${items.length}`;
-      if (!prev) return;
-      prev.disabled = carril.scrollLeft <= 2;
-      next.disabled = carril.scrollLeft >= max - 2;
-    };
-    let pendiente = 0;
-    const programar = () => { if (!pendiente) pendiente = requestAnimationFrame(() => { pendiente = 0; pintar(); }); };
-    carril.addEventListener('scroll', programar, { passive: true });
-    addEventListener('resize', programar);
-    carril.querySelectorAll('img').forEach((img) => img.addEventListener('load', programar));
-    campana.querySelectorAll('.campana__ctrl .flecha').forEach((b) => b.addEventListener('click', () => {
-      const destino = Math.min(items.length - 1, Math.max(0, actual() + Number(b.dataset.dir)));
-      carril.scrollTo({ left: items[destino].offsetLeft - relleno(), behavior: reduce ? 'auto' : 'smooth' });
-    }));
-    pintar();
-  });
-
   const visor = document.querySelector('.visor');
   const visorImg = visor.querySelector('.visor__img');
   const visorPie = visor.querySelector('.visor__pie');
@@ -879,9 +833,10 @@ button { font: inherit; color: inherit; }
     const boton = e.target.closest('.zoom');
     if (!boton) return;
     const galeria = boton.closest('[data-galeria]');
-    grupo = [...galeria.querySelectorAll('.zoom')];
+    grupo = [...galeria.querySelectorAll('.zoom')].filter((b) => !b.closest('[data-clon]'));
     titulo = galeria.dataset.galeria;
-    mostrar(grupo.indexOf(boton));
+    const clon = boton.closest('[data-clon]');
+    mostrar(grupo.indexOf(clon ? clon.parentElement.children[clon.dataset.clon].querySelector('.zoom') : boton));
     visor.showModal();
   });
   visor.addEventListener('click', (e) => {
@@ -915,7 +870,7 @@ button { font: inherit; color: inherit; }
       else v.pause();
     }
   }, { threshold: 0.5 });
-  document.querySelectorAll('.clip').forEach((c) => {
+  const prepararClip = (c) => {
     const v = c.querySelector('video');
     if (reduce) c.dataset.pausado = '';
     pintarClip(c);
@@ -925,7 +880,49 @@ button { font: inherit; color: inherit; }
       pintarClip(c);
     });
     vigia.observe(c);
-  });
+  };
+  document.querySelectorAll('.clip').forEach(prepararClip);
+
+  if (!reduce) {
+    const escritorio = matchMedia('(min-width: 900px), (orientation: landscape) and (max-height: 500px)');
+    const pistas = [...document.querySelectorAll('.carril, .digitals__grid')].filter((p) => p.children.length > 1);
+    const clonar = (p, originales) => originales.forEach((li, i) => {
+      const c = li.cloneNode(true);
+      c.dataset.clon = i;
+      c.classList.remove('revela', 'visto');
+      c.setAttribute('aria-hidden', 'true');
+      c.querySelectorAll('button').forEach((b) => { b.tabIndex = -1; });
+      p.append(c);
+      c.querySelectorAll('.clip').forEach(prepararClip);
+    });
+    const medir = () => {
+      for (const p of pistas) {
+        const activa = (p.classList.contains('carril') || !escritorio.matches) && !p.querySelector(':focus-visible');
+        p.classList.toggle('desliza', activa);
+        if (!activa) continue;
+        const originales = [...p.children].filter((li) => !('clon' in li.dataset));
+        if (p.children.length === originales.length) clonar(p, originales);
+        const viaje = p.children[originales.length].offsetLeft - originales[0].offsetLeft;
+        if (viaje <= 0) continue;
+        while (p.offsetWidth < viaje + innerWidth) clonar(p, originales);
+        p.style.setProperty('--viaje', `${-viaje}px`);
+        p.style.setProperty('--dur', `${viaje / 40}s`);
+      }
+    };
+    let pendiente = 0;
+    const programar = () => { if (!pendiente) pendiente = requestAnimationFrame(() => { pendiente = 0; medir(); }); };
+    addEventListener('resize', programar);
+    for (const p of pistas) {
+      p.querySelectorAll('img').forEach((img) => img.addEventListener('load', programar));
+      p.addEventListener('focusin', (e) => {
+        if (!e.target.matches(':focus-visible')) return;
+        p.classList.remove('desliza');
+        e.target.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      });
+      p.addEventListener('focusout', programar);
+    }
+    medir();
+  }
 
   const menu = document.querySelector('.menu');
   document.querySelector('.nav .nav__menu').addEventListener('click', () => menu.showModal());
