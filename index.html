@@ -1,0 +1,995 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dario Ortega · Modelo · Blow Models</title>
+<meta name="description" content="Book de Dario Ortega, modelo de Blow Models en Barcelona y Madrid y atleta de 400 m vallas. Medidas, campañas para Victoria Shoes, Adidas, Pacific and Co, Running Emotion, Pleto y Blue Banana, editorial, vídeos y digitals.">
+<meta property="og:title" content="Dario Ortega · Modelo">
+<meta property="og:description" content="Medidas, campañas, editorial y booking a través de Blow Models.">
+<meta property="og:image" content="fotos/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f4c400'/%3E%3Ctext x='16' y='24' font-family='Arial' font-weight='700' font-size='20' text-anchor='middle' fill='%23111'%3EDO%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="fotos/hero.jpg" imagesrcset="fotos/hero-800.jpg 800w, fotos/hero.jpg 1212w" imagesizes="(max-width: 899px) 68vw, 34vw" fetchpriority="high">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root {
+  --blanco: #ffffff;
+  --tinta: #111111;
+  --gris: #5e5e5e;
+  --linea: #d4d4d4;
+  --amarillo: #f4c400;
+
+  --color-fondo: var(--blanco);
+  --color-texto: var(--tinta);
+  --color-texto-2: var(--gris);
+  --color-borde: var(--linea);
+  --color-acento: var(--amarillo);
+
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 32px;
+  --sp-7: 48px; --sp-8: 64px; --sp-9: 96px; --sp-10: 128px; --sp-11: 192px;
+
+  --ease-salida: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-mov: cubic-bezier(0.77, 0, 0.175, 1);
+  --t-press: 120ms; --t-medio: 220ms; --t-lento: 320ms; --t-reveal: 700ms;
+
+  --margen: 16px;
+  --nav-h: 64px;
+  --ancho: 1440px;
+  --fuente: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+}
+@media (min-width: 768px) { :root { --margen: 32px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); scrollbar-gutter: stable; -webkit-tap-highlight-color: transparent; }
+html:has(dialog[open]) { overflow: hidden; }
+body {
+  margin: 0;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img, video { display: block; max-width: 100%; height: auto; }
+h1, h2, h3 { margin: 0; font-weight: 700; text-wrap: balance; }
+p { margin: 0; max-width: 68ch; text-wrap: pretty; }
+a { color: inherit; }
+ul, ol, dl, dd, figure { margin: 0; padding: 0; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--tinta); outline-offset: 3px; }
+
+.contenedor { max-width: var(--ancho); margin-inline: auto; padding-inline: var(--margen); }
+.display {
+  font-stretch: 75%;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.82;
+  letter-spacing: -0.01em;
+}
+.tabular { font-variant-numeric: tabular-nums; }
+
+.saltar {
+  position: absolute; left: var(--margen); top: -100px; z-index: 100;
+  padding: var(--sp-3) var(--sp-5); background: var(--tinta); color: var(--blanco);
+}
+.saltar:focus { top: var(--sp-2); }
+
+/* Botones */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-2);
+  min-height: 44px; padding: var(--sp-3) var(--sp-5);
+  font-weight: 600; font-size: 1rem; line-height: 1.2; text-decoration: none;
+  border: 1px solid transparent; background: none; cursor: pointer;
+  transition: background-color var(--t-medio) var(--ease-salida), color var(--t-medio) var(--ease-salida), transform var(--t-press) var(--ease-salida);
+}
+.btn:active { transform: scale(0.98); }
+.btn--acento { background: var(--amarillo); color: var(--tinta); }
+.btn--linea { border-color: var(--tinta); color: var(--tinta); }
+.btn--negro { background: var(--tinta); color: var(--blanco); }
+@media (hover: hover) and (pointer: fine) {
+  .btn--acento:hover, .btn--linea:hover { background: var(--tinta); color: var(--blanco); }
+  .btn--negro:hover { background: var(--blanco); color: var(--tinta); }
+}
+
+/* Navegación */
+.nav {
+  position: fixed; inset: 0 0 auto; z-index: 50; height: var(--nav-h);
+  display: flex; align-items: center; justify-content: space-between; gap: var(--sp-6);
+  padding-inline: var(--margen);
+  background: var(--blanco);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--t-medio) var(--ease-salida);
+}
+.nav.con-borde { border-color: var(--color-borde); }
+.nav__marca { padding-block: var(--sp-3); font-size: 1.5rem; line-height: 1; text-decoration: none; white-space: nowrap; }
+@media (max-width: 899px) {
+  .nav { gap: var(--sp-4); }
+  .nav .btn--linea { padding-inline: var(--sp-4); }
+}
+.nav__menu { padding-inline: var(--sp-3); margin-right: calc(var(--sp-3) * -1); }
+.nav__links { display: none; list-style: none; gap: var(--sp-6); }
+.nav__links a {
+  display: block; padding-block: var(--sp-3); font-weight: 500; text-decoration: none;
+  text-decoration-thickness: 2px; text-underline-offset: 6px;
+}
+.nav__links a[aria-current="true"], .nav__links a:hover { text-decoration-line: underline; }
+.nav__derecha { display: flex; align-items: center; gap: var(--sp-2); }
+@media (min-width: 900px) {
+  .nav__links { display: flex; }
+  .nav__derecha { gap: var(--sp-6); }
+  .nav .nav__menu { display: none; }
+}
+
+.menu {
+  width: 100%; height: 100%; max-width: none; max-height: none;
+  margin: 0; padding: 0 var(--margen) max(var(--sp-6), env(safe-area-inset-bottom)); border: 0;
+  background: var(--amarillo); color: var(--tinta);
+  overflow-y: auto; overscroll-behavior: contain;
+}
+.menu::backdrop { background: transparent; }
+.menu[open] { display: flex; flex-direction: column; animation: aparece var(--t-medio) var(--ease-salida); }
+.menu__barra { display: flex; align-items: center; justify-content: space-between; min-height: var(--nav-h); }
+.menu__links { list-style: none; margin-block: var(--sp-5) var(--sp-7); border-top: 1px solid var(--tinta); }
+.menu__links a {
+  display: block; padding-block: var(--sp-3) var(--sp-2);
+  font-size: clamp(3rem, 15vw, 5.5rem); text-decoration: none;
+  border-bottom: 1px solid var(--tinta);
+  animation: sube 500ms var(--ease-salida) both; animation-delay: calc(var(--i) * 40ms + 80ms);
+}
+.menu .btn--negro { margin-top: auto; align-self: flex-start; }
+
+/* Hero */
+.hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: max(100svh, 640px);
+  background: var(--blanco);
+}
+.hero__foto {
+  position: absolute; z-index: 1; left: 50%;
+  top: calc(var(--nav-h) + (100% - var(--nav-h)) / 2);
+  width: min(34vw, 480px, calc((100svh - 180px) * 0.75));
+  translate: -50% -50%;
+  animation: destapa 1100ms var(--ease-mov) 100ms both;
+}
+.hero__foto img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+.hero__nombre {
+  position: absolute; z-index: 2;
+  inset: calc(var(--nav-h) + var(--sp-4)) var(--margen) var(--sp-5);
+  display: flex; flex-direction: column; justify-content: space-between;
+  font-size: clamp(5.5rem, 21vw, 22rem);
+  color: var(--blanco);
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+.hero__nombre span { display: block; animation: sube 900ms var(--ease-salida) both; }
+.hero__nombre span:last-child { align-self: flex-end; animation-delay: 120ms; }
+.hero__meta {
+  position: absolute; z-index: 3;
+  top: calc(var(--nav-h) + var(--sp-6)); right: var(--margen);
+  width: 18rem; display: grid; gap: var(--sp-4); justify-items: end; text-align: right;
+  animation: aparece 700ms var(--ease-salida) 500ms both;
+}
+.hero__meta p { font-size: 1.125rem; line-height: 1.45; }
+.hero__dato {
+  position: absolute; z-index: 3; left: var(--margen); bottom: var(--sp-6);
+  width: 18rem; color: var(--color-texto-2);
+  animation: aparece 700ms var(--ease-salida) 600ms both;
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero { min-height: max(100svh, 320px); }
+  .hero__nombre { font-size: min(21vw, 38svh); }
+}
+@media (max-width: 899px) and (orientation: portrait) {
+  .hero__nombre { font-size: 24vw; inset: calc(var(--nav-h) + var(--sp-2)) var(--margen) 132px; }
+  .hero__foto {
+    width: 68vw; height: calc(100% - var(--nav-h) - 190px);
+    top: calc(var(--nav-h) + 40px); translate: -50% 0;
+  }
+  .hero__foto img { height: 100%; aspect-ratio: auto; }
+  .hero__meta {
+    top: auto; bottom: var(--sp-4); left: var(--margen); width: auto;
+    gap: var(--sp-3); justify-items: start; text-align: left;
+  }
+  .hero__meta p { font-size: 1rem; }
+  .hero__dato { display: none; }
+}
+
+@keyframes sube { from { opacity: 0; transform: translateY(0.12em); } to { opacity: 1; transform: none; } }
+@keyframes destapa { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0); } }
+@keyframes aparece { from { opacity: 0; } to { opacity: 1; } }
+
+/* Secciones */
+.seccion { padding-block: var(--sp-10); }
+.seccion__cab { display: grid; gap: var(--sp-4); margin-bottom: var(--sp-7); }
+.seccion__cab h2 { font-size: clamp(3.5rem, 10vw, 9rem); }
+.seccion__cab p { font-size: 1.125rem; color: var(--color-texto-2); }
+@media (min-width: 900px) {
+  .seccion__cab { grid-template-columns: 1fr minmax(0, 26rem); align-items: end; }
+  .seccion__cab p { padding-bottom: var(--sp-2); }
+}
+@media (max-width: 899px) {
+  .seccion { padding-block: var(--sp-9); }
+  .seccion__cab { margin-bottom: var(--sp-6); }
+}
+
+/* Marcas */
+.marcas { border-block: 1px solid var(--tinta); }
+.marcas .contenedor { display: grid; gap: var(--sp-5); padding-block: var(--sp-6); align-items: center; }
+.marcas__titulo { font-size: 1.125rem; font-weight: 500; line-height: 1.4; }
+.marcas ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--sp-3) var(--sp-5); }
+.marcas li { flex: 0 0 calc((100% - 2 * var(--sp-5)) / 3); display: grid; justify-items: center; }
+.marcas a { display: grid; place-items: center; min-height: 64px; padding: var(--sp-2); transition: opacity var(--t-medio) var(--ease-salida); }
+.marcas img { height: calc(var(--h) * 0.8); width: auto; }
+@media (hover: hover) and (pointer: fine) { .marcas ul:hover a:not(:hover) { opacity: 0.35; } }
+@media (min-width: 900px) {
+  .marcas .contenedor { grid-template-columns: 12rem 1fr; }
+  .marcas ul { flex-wrap: nowrap; justify-content: space-between; }
+  .marcas li { flex: 1 1 0; }
+  .marcas img { height: var(--h); }
+}
+
+/* Pista */
+.pista__grid { display: grid; gap: var(--sp-7); }
+.pista__foto img { width: 100%; }
+.pista__texto { display: grid; gap: var(--sp-6); align-content: end; }
+.pista__texto > p { font-size: 1.25rem; line-height: 1.5; }
+.registros { border-top: 1px solid var(--tinta); }
+.registros > div { display: grid; gap: var(--sp-2); padding-block: var(--sp-4); border-bottom: 1px solid var(--tinta); }
+.registros dt { grid-row: 2; line-height: 1.4; }
+.registros dd { grid-row: 1; font-size: clamp(2.5rem, 4vw, 3rem); line-height: 1; }
+.pista__texto > .pista__fuente { font-size: 0.875rem; line-height: 1.5; color: var(--color-texto-2); }
+@media (min-width: 900px), (orientation: landscape) and (max-height: 500px) {
+  .pista__grid { grid-template-columns: 5fr 7fr; align-items: end; }
+  .registros > div { grid-template-columns: 9rem 1fr; gap: var(--sp-5); align-items: baseline; }
+  .registros dt { grid-column: 2; grid-row: 1; }
+  .registros dd { grid-column: 1; }
+}
+
+/* Ficha: cinta métrica */
+.medidas { display: grid; gap: var(--sp-4); }
+.medida { display: grid; gap: var(--sp-2); }
+.medida dt { font-weight: 500; }
+.cinta { container-type: inline-size; }
+.cinta__barra {
+  --cm: 0.5cqi;
+  display: flex; align-items: flex-end; justify-content: flex-end; gap: var(--sp-1);
+  width: calc(var(--v) * var(--cm));
+  height: 56px;
+  padding: 0 var(--sp-3) var(--sp-2);
+  background-color: var(--amarillo);
+  background-image:
+    linear-gradient(90deg, var(--tinta) 1px, transparent 1px),
+    linear-gradient(90deg, var(--tinta) 1px, transparent 1px);
+  background-size: calc(var(--cm) * 10) 40%, calc(var(--cm) * 5) 20%;
+  background-repeat: repeat-x;
+  transform-origin: left center;
+}
+.cinta__barra b { font-size: 1.5rem; line-height: 1; font-weight: 700; }
+.cinta__barra small { font-size: 0.875rem; font-weight: 500; line-height: 1.4; }
+.medida--eje { margin-top: var(--sp-2); }
+.medida--eje > span { display: none; }
+@media (min-width: 900px) { .medida--eje > span { display: block; } }
+.eje { position: relative; height: 1.5rem; font-size: 0.875rem; color: var(--color-texto-2); }
+.eje span { position: absolute; left: calc(var(--p) * 1%); translate: -50% 0; white-space: nowrap; }
+.eje span:first-child { translate: 0 0; }
+.eje span:last-child { translate: -100% 0; }
+@media (min-width: 900px) {
+  .medida { grid-template-columns: 9rem 1fr; align-items: center; gap: var(--sp-4); }
+  .cinta__barra { height: 72px; background-size: calc(var(--cm) * 10) 40%, var(--cm) 20%; }
+  .cinta__barra b { font-size: 2rem; }
+}
+.js .ficha .cinta__barra { transform: scaleX(0); transition: transform 1100ms var(--ease-mov) calc(var(--i) * 90ms); }
+.js .ficha.visto .cinta__barra { transform: none; }
+
+.rasgos { display: grid; gap: var(--sp-6); margin-top: var(--sp-8); }
+.rasgos > div { display: grid; gap: var(--sp-3); align-content: start; padding-top: var(--sp-4); border-top: 1px solid var(--tinta); }
+.rasgos dt { font-weight: 500; }
+.rasgos dd { display: grid; gap: var(--sp-3); }
+.rasgos .valor { font-size: 2rem; line-height: 1; font-weight: 700; }
+.rasgos .valor small { font-size: 0.875rem; font-weight: 500; }
+.rasgos img { width: 100%; aspect-ratio: 38 / 11; object-fit: cover; }
+@media (min-width: 900px) { .rasgos { grid-template-columns: repeat(3, 1fr); } }
+
+/* Índice de trabajos */
+.indice { list-style: none; border-top: 1px solid var(--tinta); margin-inline: calc(var(--margen) * -1); }
+.indice a {
+  display: grid; gap: var(--sp-1);
+  padding: var(--sp-4) var(--margen);
+  border-bottom: 1px solid var(--tinta);
+  text-decoration: none;
+  transition: background-color var(--t-medio) var(--ease-salida);
+}
+.indice__cliente {
+  font-size: clamp(2.75rem, 8vw, 7rem);
+  transition: transform var(--t-lento) var(--ease-salida);
+}
+.indice__meta { color: var(--color-texto-2); transition: color var(--t-medio) var(--ease-salida); }
+.indice a:focus-visible { outline-offset: -2px; background: var(--amarillo); }
+.indice a:focus-visible .indice__meta { color: var(--tinta); }
+@media (min-width: 900px) {
+  .indice a { grid-template-columns: 1fr auto; align-items: baseline; gap: var(--sp-4); }
+  .indice__meta { text-align: right; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .indice a:hover { background: var(--amarillo); }
+  .indice a:hover .indice__cliente { transform: translateX(var(--sp-4)); }
+  .indice a:hover .indice__meta { color: var(--tinta); }
+}
+.preview {
+  position: fixed; top: 0; left: 0; z-index: 40;
+  width: 240px; aspect-ratio: 4 / 5; object-fit: cover;
+  pointer-events: none; opacity: 0;
+  transform: translate(32px, -50%) scale(0.95);
+  transition: opacity var(--t-medio) var(--ease-salida), transform var(--t-medio) var(--ease-salida);
+}
+.preview.on { opacity: 1; transform: translate(32px, -50%) scale(1); }
+@media not ((hover: hover) and (pointer: fine)) { .preview { display: none; } }
+@media (hover: none) {
+  .indice a:active { background: var(--amarillo); }
+  .indice a:active .indice__meta { color: var(--tinta); }
+}
+
+/* Campañas */
+.campanas { margin-top: var(--sp-9); }
+.campana { padding-top: var(--sp-9); }
+.campana__cab { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--sp-4) var(--sp-6); margin-bottom: var(--sp-5); }
+.campana__cab h3 { font-size: clamp(2.5rem, 6vw, 5rem); }
+.campana__credito { color: var(--color-texto-2); margin-top: var(--sp-2); }
+.campana__ctrl { display: flex; align-items: center; gap: var(--sp-2); }
+.contador { min-width: 5ch; font-weight: 500; }
+.flecha {
+  display: grid; place-items: center; width: 44px; height: 44px;
+  border: 1px solid var(--tinta); background: none; cursor: pointer;
+  transition: background-color var(--t-medio) var(--ease-salida), color var(--t-medio) var(--ease-salida), transform var(--t-press) var(--ease-salida);
+}
+.flecha:active:not(:disabled) { transform: scale(0.96); }
+.flecha:disabled { opacity: 0.35; cursor: default; }
+@media (hover: hover) and (pointer: fine) { .flecha:hover:not(:disabled) { background: var(--tinta); color: var(--blanco); } }
+.campana.sin-scroll .flecha { display: none; }
+.carril {
+  --borde: max(var(--margen), calc((100vw - var(--ancho)) / 2 + var(--margen)));
+  position: relative; display: flex; gap: var(--sp-4);
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-padding-inline: var(--borde);
+  padding: 0 var(--borde) var(--sp-4);
+  list-style: none; scrollbar-width: thin; scrollbar-color: var(--tinta) transparent;
+}
+.carril li { flex: 0 0 auto; scroll-snap-align: start; }
+.carril img, .carril video { height: clamp(380px, 72vh, 760px); width: auto; }
+@media (max-width: 899px) {
+  .campanas { margin-top: var(--sp-8); }
+  .campana { padding-top: var(--sp-8); }
+}
+@media (max-width: 899px) and (orientation: portrait) {
+  .carril li:not(:only-child) img, .carril li:not(:only-child) video { width: 80vw; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 25%; }
+  .carril li:only-child img { width: calc(100vw - 2 * var(--margen)); height: auto; }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .carril img, .carril video { height: calc(100svh - var(--nav-h) - var(--sp-7)); }
+}
+
+.clip { position: relative; display: block; padding: 0; border: 0; background: none; cursor: pointer; }
+.clip__estado {
+  position: absolute; left: var(--sp-2); bottom: var(--sp-2);
+  padding: var(--sp-1) var(--sp-2); background: var(--tinta); color: var(--blanco);
+  font-size: 0.875rem; font-weight: 500; line-height: 1.4;
+}
+@media (hover: none) and (pointer: coarse) {
+  .campana__cab { flex-wrap: nowrap; align-items: baseline; }
+  .campana__ctrl .flecha { display: none; }
+  .contador { text-align: right; }
+}
+
+.zoom { display: block; padding: 0; border: 0; background: none; cursor: zoom-in; overflow: hidden; }
+.zoom img { transition: transform 600ms var(--ease-salida); }
+@media (hover: hover) and (pointer: fine) { .zoom:hover img { transform: scale(1.03); } }
+@media (hover: none) { .zoom:active img { transform: scale(0.98); transition-duration: var(--t-medio); } }
+
+/* Editorial */
+.mosaico { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); align-items: start; }
+.mosaico .e1, .mosaico .e4, .mosaico .e7 { grid-column: 1 / -1; }
+.mosaico img { width: 100%; }
+@media (max-width: 899px) and (orientation: portrait) { .mosaico .zoom:not(.e1, .e4, .e7) img { aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 25%; } }
+@media (min-width: 900px), (orientation: landscape) and (max-height: 500px) {
+  .mosaico { grid-template-columns: repeat(12, 1fr); }
+  .mosaico .e1 { grid-column: 1 / 7; }
+  .mosaico .e2 { grid-column: 8 / 13; margin-top: var(--sp-11); }
+  .mosaico .e3 { grid-column: 2 / 6; }
+  .mosaico .e4 { grid-column: 6 / 10; margin-top: var(--sp-9); }
+  .mosaico .e5 { grid-column: 10 / 13; margin-top: var(--sp-7); }
+  .mosaico .e6 { grid-column: 1 / 6; }
+  .mosaico .e7 { grid-column: 7 / 12; margin-top: var(--sp-10); }
+  .mosaico .e8 { grid-column: 2 / 7; }
+  .mosaico .e9 { grid-column: 8 / 12; margin-top: var(--sp-9); }
+}
+
+/* Digitals */
+.digitals__grid {
+  display: grid; gap: var(--sp-4); grid-auto-flow: column; grid-auto-columns: 78%;
+  overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: var(--margen);
+  list-style: none; margin-inline: calc(var(--margen) * -1); padding: 0 var(--margen) var(--sp-4);
+  scrollbar-width: thin; scrollbar-color: var(--tinta) transparent;
+}
+.digitals__grid li { scroll-snap-align: start; }
+.digitals__grid img { width: 100%; }
+@media (min-width: 900px), (orientation: landscape) and (max-height: 500px) { .digitals__grid { grid-auto-flow: row; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; margin-inline: 0; padding-inline: 0; } }
+
+/* Booking */
+.booking { background: var(--amarillo); padding-block: var(--sp-11) var(--sp-9); }
+@media (max-width: 899px) { .booking { padding-block: var(--sp-10) var(--sp-8); } }
+.booking h2 { font-size: clamp(5rem, 18vw, 19rem); }
+.booking__grid { display: grid; gap: var(--sp-7); margin-top: var(--sp-8); }
+.booking__intro { display: grid; gap: var(--sp-5); align-content: start; justify-items: start; }
+.booking__intro p { font-size: 1.25rem; line-height: 1.5; }
+.oficina h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: var(--sp-2); }
+.oficina address { font-style: normal; }
+.booking a:not(.btn) { text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.booking a:not(.btn):hover { text-decoration-thickness: 2px; }
+.enlaces { display: flex; flex-wrap: wrap; gap: 0 var(--sp-5); list-style: none; }
+.enlaces a { display: inline-block; padding-block: var(--sp-3); font-weight: 500; }
+@media (min-width: 900px) { .booking__grid { grid-template-columns: 5fr 3fr 3fr; } }
+
+.pie { background: var(--amarillo); border-top: 1px solid var(--tinta); padding-block: var(--sp-5); font-size: 0.875rem; }
+.pie .contenedor { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sp-2) var(--sp-6); }
+
+/* Visor */
+.visor {
+  width: 100%; height: 100%; max-width: none; max-height: none;
+  margin: 0; padding: 0; border: 0;
+  background: var(--tinta); color: var(--blanco);
+}
+.visor::backdrop { background: transparent; }
+.visor[open] { display: grid; grid-template-rows: auto 1fr; animation: aparece var(--t-lento) var(--ease-salida); }
+.visor__barra { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); padding: var(--sp-3) var(--margen); }
+.visor__cuerpo { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--sp-4); padding: 0 var(--margen) var(--sp-5); min-height: 0; }
+.visor__img { justify-self: center; max-width: 100%; max-height: calc(100svh - 110px); width: auto; height: auto; touch-action: pan-y pinch-zoom; }
+@media (max-width: 899px) and (orientation: portrait) {
+  .visor__cuerpo {
+    grid-template-columns: 1fr 1fr; grid-template-rows: 1fr auto; gap: var(--sp-4) 0;
+    padding: 0 0 max(var(--sp-4), env(safe-area-inset-bottom));
+  }
+  .visor__img { grid-column: 1 / -1; grid-row: 1; max-height: calc(100svh - 160px - env(safe-area-inset-bottom)); }
+  .visor .flecha { grid-row: 2; width: 56px; height: 56px; margin-inline: var(--margen); font-size: 1.25rem; }
+  .visor [data-paso="1"] { justify-self: end; }
+}
+.visor .flecha, .visor .btn--linea { border-color: var(--blanco); color: var(--blanco); }
+@media (hover: hover) and (pointer: fine) {
+  .visor .flecha:hover, .visor .btn--linea:hover { background: var(--blanco); color: var(--tinta); }
+}
+.visor :focus-visible { outline-color: var(--blanco); }
+
+/* Revelados */
+.js .revela { opacity: 0; transform: translateY(24px); transition: opacity var(--t-reveal) var(--ease-salida), transform var(--t-reveal) var(--ease-salida); }
+.js .revela.visto { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .revela, .js .ficha .cinta__barra { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+<a class="saltar" href="#main">Ir al contenido</a>
+
+<header class="nav">
+  <a class="nav__marca display" href="#top">Dario Ortega</a>
+  <div class="nav__derecha">
+    <nav aria-label="Secciones">
+      <ul class="nav__links">
+        <li><a href="#ficha">Ficha</a></li>
+        <li><a href="#pista">Pista</a></li>
+        <li><a href="#trabajos">Trabajos</a></li>
+        <li><a href="#editorial">Editorial</a></li>
+        <li><a href="#digitals">Digitals</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--linea" href="#booking">Booking</a>
+    <button class="btn nav__menu" type="button" aria-haspopup="dialog">Menú</button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-label="Presentación">
+    <figure class="hero__foto">
+      <img src="fotos/hero.jpg" srcset="fotos/hero-800.jpg 800w, fotos/hero.jpg 1212w" sizes="(max-width: 899px) 68vw, 34vw" width="1212" height="1600" fetchpriority="high"
+           alt="Dario Ortega con sudadera oscura, retrato con desenfoque de movimiento sobre fondo azul verdoso">
+    </figure>
+    <h1 class="hero__nombre display"><span>Dario</span><span>Ortega</span></h1>
+    <div class="hero__meta">
+      <p>Modelo en Blow Models<br>Barcelona · Madrid</p>
+      <a class="btn btn--acento" href="#booking">Pedir disponibilidad</a>
+    </div>
+    <p class="hero__dato">Modelo y atleta. Más de diez años corriendo 400 m vallas.</p>
+  </section>
+
+  <section class="marcas" aria-labelledby="marcas-t">
+    <div class="contenedor">
+      <h2 id="marcas-t" class="marcas__titulo">Ha trabajado con</h2>
+      <ul>
+        <li><a href="#victoria"><img src="logos/victoria.svg" width="365" height="73" alt="Victoria Shoes" style="--h:25px"></a></li>
+        <li><a href="#adidas"><img src="logos/adidas.svg" width="725" height="500" alt="Adidas" style="--h:47px"></a></li>
+        <li><a href="#pacific"><img src="logos/pacific.png" width="1193" height="723" alt="Pacific and Co" style="--h:56px"></a></li>
+        <li><a href="#running"><img src="logos/running.svg" width="285" height="67" alt="Running Emotion" style="--h:32px"></a></li>
+        <li><a href="#pleto"><img src="logos/pleto.svg" width="98" height="23" alt="Pleto" style="--h:24px"></a></li>
+        <li><a href="#bluebanana"><img src="logos/bluebanana.svg" width="128" height="16" alt="Blue Banana" style="--h:18px"></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="seccion ficha" id="ficha" aria-labelledby="ficha-t">
+    <div class="contenedor">
+      <header class="seccion__cab">
+        <h2 id="ficha-t" class="display">Ficha</h2>
+        <p>Medidas en centímetros, sobre una cinta de 0 a 200 cm. Datos de Blow Models.</p>
+      </header>
+      <dl class="medidas tabular">
+        <div class="medida">
+          <dt>Altura</dt>
+          <dd class="cinta"><span class="cinta__barra" style="--v:183; --i:0"><b>183</b><small>cm</small></span></dd>
+        </div>
+        <div class="medida">
+          <dt>Pecho</dt>
+          <dd class="cinta"><span class="cinta__barra" style="--v:98; --i:1"><b>98</b><small>cm</small></span></dd>
+        </div>
+        <div class="medida">
+          <dt>Cintura</dt>
+          <dd class="cinta"><span class="cinta__barra" style="--v:78; --i:2"><b>78</b><small>cm</small></span></dd>
+        </div>
+        <div class="medida">
+          <dt>Cadera</dt>
+          <dd class="cinta"><span class="cinta__barra" style="--v:99; --i:3"><b>99</b><small>cm</small></span></dd>
+        </div>
+      </dl>
+      <div class="medida medida--eje tabular" aria-hidden="true">
+        <span></span>
+        <div class="eje"><span style="--p:0">0</span><span style="--p:25">50</span><span style="--p:50">100</span><span style="--p:75">150</span><span style="--p:100">200 cm</span></div>
+      </div>
+      <dl class="rasgos">
+        <div>
+          <dt>Pie</dt>
+          <dd><span class="valor tabular">44 <small>EU</small></span></dd>
+        </div>
+        <div>
+          <dt>Ojos</dt>
+          <dd><span class="valor">Azules</span><img src="fotos/ojos.jpg" width="380" height="110" loading="lazy" alt="Detalle de los ojos azules de Dario"></dd>
+        </div>
+        <div>
+          <dt>Pelo</dt>
+          <dd><span class="valor">Castaño</span><img src="fotos/pelo.jpg" width="380" height="110" loading="lazy" alt="Detalle del pelo castaño de Dario"></dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="seccion" id="pista" aria-labelledby="pista-t">
+    <div class="contenedor">
+      <header class="seccion__cab">
+        <h2 id="pista-t" class="display">Pista</h2>
+        <p>Atleta de 400 m vallas y relevos con la Sociedad Gimnástica de Pontevedra.</p>
+      </header>
+      <div class="pista__grid">
+        <figure class="pista__foto revela">
+          <img src="fotos/atleta.jpg" srcset="fotos/atleta-800.jpg 800w, fotos/atleta.jpg 1200w" sizes="(max-width: 899px) 100vw, 40vw" width="1200" height="1600" loading="lazy" alt="Dario sentado sobre un cajón de salida en una pista de atletismo durante una competición, con dorsal y camiseta de tirantes">
+        </figure>
+        <div class="pista__texto">
+          <p>Más de diez años de atletismo: de sus primeros grupos en Santa Ana, Alcorcón y Vallehermoso al Paufra Team de Pau Fradera. En julio de 2026 se despidió de la competición.</p>
+          <dl class="registros tabular">
+            <div><dt>400 m vallas, semifinal del Campeonato de España en Torrent</dt><dd class="display">52.99</dd></div>
+            <div><dt>4×400 con la S. G. Pontevedra, récord del club</dt><dd class="display">3:10.51</dd></div>
+            <div><dt>Finales absolutas seguidas en el Campeonato de España</dt><dd class="display">2</dd></div>
+          </dl>
+          <p class="pista__fuente">Fuentes: <a href="https://www.sgpontevedra.com/tag/dario-ortega/" target="_blank" rel="noopener">Sociedad Gimnástica de Pontevedra</a> e <a href="https://www.instagram.com/dario_otga/p/DbNcpgxOgob/" target="_blank" rel="noopener">Instagram de Dario</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="trabajos" aria-labelledby="trabajos-t">
+    <div class="contenedor">
+      <header class="seccion__cab">
+        <h2 id="trabajos-t" class="display">Trabajos</h2>
+        <p>Campañas y catálogos de su book en Blow Models. Pulsa una foto para verla a pantalla completa.</p>
+      </header>
+      <ul class="indice">
+        <li><a href="#running" data-preview="fotos/running-1.jpg"><span class="indice__cliente display">Running Emotion</span><span class="indice__meta">2 vídeos y 2 fotos · julio 2026</span></a></li>
+        <li><a href="#bluebanana" data-preview="fotos/bluebanana-1-800.jpg"><span class="indice__cliente display">Blue Banana</span><span class="indice__meta">4 fotos · Dolomitas, julio 2026</span></a></li>
+        <li><a href="#victoria" data-preview="fotos/victoria-5.jpg"><span class="indice__cliente display">Victoria Shoes</span><span class="indice__meta">5 fotos · con Javi Antón</span></a></li>
+        <li><a href="#pleto" data-preview="fotos/pleto-1.jpg"><span class="indice__cliente display">Pleto</span><span class="indice__meta">5 fotos · con Eren Saračević · abril 2026</span></a></li>
+        <li><a href="#pacific" data-preview="fotos/pacific-2.jpg"><span class="indice__cliente display">Pacific and Co</span><span class="indice__meta">2 fotos</span></a></li>
+        <li><a href="#adidas" data-preview="fotos/adidas-1.jpg"><span class="indice__cliente display">Adidas</span><span class="indice__meta">1 foto</span></a></li>
+        <li><a href="#lopez" data-preview="fotos/lopez-1.jpg"><span class="indice__cliente display">Lopez</span><span class="indice__meta">3 fotos</span></a></li>
+        <li><a href="#editorial" data-preview="fotos/editorial-2.jpg"><span class="indice__cliente display">Editorial</span><span class="indice__meta">9 fotos</span></a></li>
+        <li><a href="#digitals" data-preview="fotos/digital-1.jpg"><span class="indice__cliente display">Digitals</span><span class="indice__meta">3 fotos</span></a></li>
+      </ul>
+    </div>
+    <img class="preview" src="fotos/running-1.jpg" width="720" height="960" alt="" aria-hidden="true">
+
+    <div class="campanas">
+      <article class="campana" id="running" data-galeria="Running Emotion" aria-labelledby="running-t">
+        <div class="contenedor campana__cab">
+          <div>
+            <h3 id="running-t" class="display">Running Emotion</h3>
+            <p class="campana__credito">Publicidad en Instagram, julio de 2026</p>
+          </div>
+          <div class="campana__ctrl">
+            <span class="contador tabular" aria-live="polite">1 / 4</span>
+            <button class="flecha" type="button" aria-label="Foto anterior" data-dir="-1">←</button>
+            <button class="flecha" type="button" aria-label="Foto siguiente" data-dir="1">→</button>
+          </div>
+        </div>
+        <ul class="carril">
+          <li><button class="clip" type="button" data-desc="Dario saltando vallas en una pista de atletismo, con camiseta blanca de tirantes"><video src="videos/running-1.mp4" poster="fotos/running-v1.jpg" width="720" height="960" muted loop playsinline preload="none" aria-hidden="true"></video><span class="clip__estado" aria-hidden="true">Pausar</span></button></li>
+          <li><button class="zoom" type="button"><img src="fotos/running-2.jpg" srcset="fotos/running-2-800.jpg 800w, fotos/running-2.jpg 1200w" sizes="(max-width: 899px) 80vw, 600px" width="1200" height="1600" loading="lazy" alt="Dario fotografiado desde arriba con gafas de sol rojas y camiseta blanca de tirantes"></button></li>
+          <li><button class="zoom" type="button"><img src="fotos/running-3.jpg" srcset="fotos/running-3-800.jpg 800w, fotos/running-3.jpg 1200w" sizes="(max-width: 899px) 80vw, 600px" width="1200" height="1600" loading="lazy" alt="Dario haciéndose una foto con el brazo extendido en mitad de una pista azul"></button></li>
+          <li><button class="clip" type="button" data-desc="Dario tumbado bajo un grifo de agua después de entrenar"><video src="videos/running-2.mp4" poster="fotos/running-v2.jpg" width="720" height="960" muted loop playsinline preload="none" aria-hidden="true"></video><span class="clip__estado" aria-hidden="true">Pausar</span></button></li>
+        </ul>
+      </article>
+
+      <article class="campana" id="bluebanana" data-galeria="Blue Banana" aria-labelledby="bluebanana-t">
+        <div class="contenedor campana__cab">
+          <div>
+            <h3 id="bluebanana-t" class="display">Blue Banana</h3>
+            <p class="campana__credito">Dolomitas, julio de 2026 · Fotos del Instagram de Dario</p>
+          </div>
+          <div class="campana__ctrl">
+            <span class="contador tabular" aria-live="polite">1 / 4</span>
+            <button class="flecha" type="button" aria-label="Foto anterior" data-dir="-1">←</button>
+            <button class="flecha" type="button" aria-label="Foto siguiente" data-dir="1">→</button>
+          </div>
+        </div>
+        <ul class="carril">
+          <li><button class="zoom" type="button"><img src="fotos/bluebanana-1.jpg" srcset="fotos/bluebanana-1-800.jpg 800w, fotos/bluebanana-1.jpg 1200w" sizes="(max-width: 899px) 80vw, 600px" width="1200" height="1600" loading="lazy" alt="Dario agachado en un prado de las Dolomitas con gorro rojo de Blue Banana y plumífero azul marino"></button></li>
+          <li><button class="zoom" type="button"><img src="fotos/bluebanana-2.jpg" srcset="fotos/bluebanana-2-800.jpg 800w, fotos/bluebanana-2.jpg 1125w" sizes="(max-width: 899px) 80vw, 600px" width="1125" height="1500" loading="lazy" alt="Selfie de Dario con gorra roja y chaqueta de pana verde en un prado frente a las montañas"></button></li>
+          <li><button class="zoom" type="button"><img src="fotos/bluebanana-3.jpg" srcset="fotos/bluebanana-3-800.jpg 800w, fotos/bluebanana-3.jpg 1200w" sizes="(max-width: 899px) 80vw, 600px" width="1200" height="1600" loading="lazy" alt="Dario con sudadera blanca y braga de punto junto a un compañero con forro polar de Blue Banana, en un aparcamiento de montaña"></button></li>
+          <li><button class="zoom" type="button"><img src="fotos/bluebanana-4.jpg" srcset="fotos/bluebanana-4-800.jpg 800w, fotos/bluebanana-4.jpg 1200w" sizes="(max-width: 899px) 80vw, 600px" width="1200" height="1600" loading="lazy" alt="Dario con capucha y braga de punto, fotografiado desde arriba con el brazo extendido"></button></li>
+        </ul>
+      </article>
+
+      <article class="campana" id="victoria" data-galeria="Victoria Shoes" aria-labelledby="victoria-t">
+        <div class="contenedor campana__cab">
+          <div>
+            <h3 id="victoria-t" class="display">Victoria Shoes</h3>
+            <p class="campana__credito">Con Javi Antón · Estilismo: Sara Arroyo · © 2025 Sopa de ganso Estudio</p>
+          </div>
+          <div class="campana__ctrl">
+            <span class="contador tabular" aria-live="polite">1 / 5</span>
+            <button class="flecha" type="button" aria-label="Foto anterior" data-dir="-1">←</button>
+            <button class="flecha" type="button" aria-label="Foto siguiente" data-dir="1">→</button>
+          </div>
+        </div>
+        <ul class="carril">
+          <li><button class="zoom" type="button"><img src="fotos/victoria-1.jpg" srcset="fotos/victoria-1-800.jpg 800w, fotos/victoria-1.jpg 1280w" sizes="(max-width: 899px) 80vw, 600px" width="1280" height="1600" loading="lazy" alt="Dario agachado sobre una roca junto a un lago, con sudadera de camuflaje y zapatillas verdes"></button></li>
+          <li><button class="zoom" type="button"><img src="fotos/victoria-2.jpg" srcset="fotos/victoria-2-800.jpg 800w, fotos/victoria-2.jpg 1280w" sizes="(max-width: 899px) 80vw, 600px" width="1280" height="1600" loading="lazy" alt="Dario sentado en un velero con chaqueta y pantalón corto de rayas"></button></li>
+          <li><button class="zoom" type="button"><img src="fotos/victoria-3.jpg" srcset="fotos/victoria-3-800.jpg 800w, fotos/victoria-3.jpg 1280w" sizes="(max-width: 899px) 80vw, 600px" width="1280" height="1600" loading="lazy" alt="Dario sentado en un bloque de piedra bajo un toldo, con camiseta negra y pantalón amarillo"></button></li>
+          <li><button class="zoom" type="button"><img src="fotos/victoria-4.jpg" srcset="fotos/victoria-4-800.jpg 800w, fotos/victoria-4.jpg 1280w" sizes="(max-width: 899px) 80vw, 600px" width="1280" height="1600" loading="lazy" alt="Dario con gorra y jersey de rombos junto a chalecos salvavidas naranjas"></button></li>
+          <li><button class="zoom" type="button"><img src="fotos/victoria-5.jpg" srcset="fotos/victoria-5-800.jpg 800w, fotos/victoria-5.jpg 1200w" sizes="(max-width: 899px) 80vw, 600px" width="1200" height="1600" loading="lazy" alt="Dario de cuerpo entero con jersey de rombos, bermudas y zapatillas Victoria junto a chalecos salvavidas"></button></li>
+        </ul>
+      </article>
+
+      <article class="campana" id="pleto" data-galeria="Pleto" aria-labelledby="pleto-t">
+        <div class="contenedor campana__cab">
+          <div>
+            <h3 id="pleto-t" class="display">Pleto</h3>
+            <p class="campana__credito">Con Eren Saračević, abril de 2026</p>
+          </div>
+          <div class="campana__ctrl">
+            <span class="contador tabular" aria-live="polite">1 / 5</span>
+            <button class="flecha" type="button" aria-label="Foto anterior" data-dir="-1">←</button>
+            <button class="flecha" type="button" aria-label="Foto siguiente" data-dir="1">→</button>
+          </div>
+        </div>
+        <ul class="carril">
+          <li><button class="zoom" type="button"><img src="fotos/pleto-1.jpg" srcset="fotos/pleto-1-800.jpg 800w, fotos/pleto-1.jpg 1200w" sizes="(max-width: 899px) 80vw, 600px" width="1200" height="1600" loading="lazy" alt="Dario saltando una valla sobre un cielo azul, fotografiado desde abajo"></button></li>
+          <li><button class="zoom" type="button"><img src="fotos/pleto-2.jpg" srcset="fotos/pleto-2-800.jpg 800w, fotos/pleto-2.jpg 1201w" sizes="(max-width: 899px) 80vw, 600px" width="1201" height="1600" loading="lazy" alt="Retrato de Dario en movimiento con gafas de sol rojas"></button></li>
+          <li><button class="zoom" type="button"><img src="fotos/pleto-3.jpg" srcset="fotos/pleto-3-800.jpg 800w, fotos/pleto-3.jpg 1200w" sizes="(max-width: 899px) 80vw, 600px" width="1200" height="1600" loading="lazy" alt="Dario de pie en una pista azul con su sombra alargada"></button></li>
+          <li><button class="zoom" type="button"><img src="fotos/pleto-4.jpg" srcset="fotos/pleto-4-800.jpg 800w, fotos/pleto-4.jpg 1200w" sizes="(max-width: 899px) 80vw, 600px" width="1200" height="1600" loading="lazy" alt="Primer plano del rostro de Dario con gafas de sol rojas"></button></li>
+          <li><button class="zoom" type="button"><img src="fotos/pleto-5.jpg" srcset="fotos/pleto-5-800.jpg 800w, fotos/pleto-5.jpg 1200w" sizes="(max-width: 899px) 80vw, 600px" width="1200" height="1600" loading="lazy" alt="Dario corriendo a lo lejos por la curva de una pista azul"></button></li>
+        </ul>
+      </article>
+
+      <article class="campana" id="pacific" data-galeria="Pacific and Co" aria-labelledby="pacific-t">
+        <div class="contenedor campana__cab">
+          <div>
+            <h3 id="pacific-t" class="display">Pacific and Co</h3>
+            <p class="campana__credito">Calcetines técnicos de running, Barcelona</p>
+          </div>
+          <div class="campana__ctrl">
+            <span class="contador tabular" aria-live="polite">1 / 2</span>
+            <button class="flecha" type="button" aria-label="Foto anterior" data-dir="-1">←</button>
+            <button class="flecha" type="button" aria-label="Foto siguiente" data-dir="1">→</button>
+          </div>
+        </div>
+        <ul class="carril">
+          <li><button class="zoom" type="button"><img src="fotos/pacific-2.jpg" srcset="fotos/pacific-2-800.jpg 800w, fotos/pacific-2.jpg 1080w" sizes="(max-width: 899px) 80vw, 600px" width="1080" height="1350" loading="lazy" alt="Dario corriendo en una pista de atletismo con gorra rosa y gafas de sol"></button></li>
+          <li><button class="zoom" type="button"><img src="fotos/pacific-1.jpg" srcset="fotos/pacific-1-800.jpg 800w, fotos/pacific-1.jpg 1236w" sizes="(max-width: 899px) 80vw, 600px" width="1236" height="1600" loading="lazy" alt="Primer plano de Dario con gorra rosa y una camiseta sobre la cabeza"></button></li>
+        </ul>
+      </article>
+
+      <article class="campana" id="adidas" data-galeria="Adidas" aria-labelledby="adidas-t">
+        <div class="contenedor campana__cab">
+          <div>
+            <h3 id="adidas-t" class="display">Adidas</h3>
+          </div>
+          <div class="campana__ctrl">
+            <span class="contador tabular" aria-live="polite">1 foto</span>
+          </div>
+        </div>
+        <ul class="carril">
+          <li><button class="zoom" type="button"><img src="fotos/adidas-1.jpg" srcset="fotos/adidas-1-800.jpg 800w, fotos/adidas-1.jpg 1600w" sizes="(max-width: 899px) 80vw, 600px" width="1600" height="1600" loading="lazy" alt="Dario estirando en el suelo con chaqueta Adidas y zapatillas verdes"></button></li>
+        </ul>
+      </article>
+
+      <article class="campana" id="lopez" data-galeria="Lopez" aria-labelledby="lopez-t">
+        <div class="contenedor campana__cab">
+          <div><h3 id="lopez-t" class="display">Lopez</h3></div>
+          <div class="campana__ctrl">
+            <span class="contador tabular" aria-live="polite">1 / 3</span>
+            <button class="flecha" type="button" aria-label="Foto anterior" data-dir="-1">←</button>
+            <button class="flecha" type="button" aria-label="Foto siguiente" data-dir="1">→</button>
+          </div>
+        </div>
+        <ul class="carril">
+          <li><button class="zoom" type="button"><img src="fotos/lopez-1.jpg" srcset="fotos/lopez-1-800.jpg 800w, fotos/lopez-1.jpg 1067w" sizes="(max-width: 899px) 80vw, 600px" width="1067" height="1600" loading="lazy" alt="Dario sin camiseta con pantalón corto azul marino frente a una pared amarilla"></button></li>
+          <li><button class="zoom" type="button"><img src="fotos/lopez-2.jpg" width="854" height="1280" loading="lazy" alt="Dario de perfil con pantalón corto azul marino frente a una pared amarilla"></button></li>
+          <li><button class="zoom" type="button"><img src="fotos/lopez-3.jpg" srcset="fotos/lopez-3-800.jpg 800w, fotos/lopez-3.jpg 960w" sizes="(max-width: 899px) 80vw, 600px" width="960" height="1200" loading="lazy" alt="Dario sin camiseta con pantalón corto azul marino a contraluz"></button></li>
+        </ul>
+      </article>    </div>
+  </section>
+
+  <section class="seccion" id="editorial" data-galeria="Editorial" aria-labelledby="editorial-t">
+    <div class="contenedor">
+      <header class="seccion__cab">
+        <h2 id="editorial-t" class="display">Editorial</h2>
+        <p>Estudio y calle, en color y en blanco y negro.</p>
+      </header>
+      <div class="mosaico">
+        <button class="zoom revela e1" type="button"><img src="fotos/editorial-1.jpg" srcset="fotos/editorial-1-800.jpg 800w, fotos/editorial-1.jpg 1067w" sizes="(max-width: 899px) 100vw, 45vw" width="1067" height="1600" loading="lazy" alt="Primer plano de Dario con chaqueta de cuero negra y camisa blanca"></button>
+        <button class="zoom revela e2" type="button"><img src="fotos/editorial-2.jpg" srcset="fotos/editorial-2-800.jpg 800w, fotos/editorial-2.jpg 1196w" sizes="(max-width: 899px) 50vw, 45vw" width="1196" height="1600" loading="lazy" alt="Dario en blanco y negro con abrigo largo en una calle"></button>
+        <button class="zoom revela e3" type="button"><img src="fotos/editorial-3.jpg" srcset="fotos/editorial-3-800.jpg 800w, fotos/editorial-3.jpg 1265w" sizes="(max-width: 899px) 50vw, 45vw" width="1265" height="1600" loading="lazy" alt="Dario de pie sobre un cajón con chaqueta de cuero abierta y vaqueros"></button>
+        <button class="zoom revela e4" type="button"><img src="fotos/editorial-4.jpg" srcset="fotos/editorial-4-800.jpg 800w, fotos/editorial-4.jpg 1208w" sizes="(max-width: 899px) 100vw, 45vw" width="1208" height="1600" loading="lazy" alt="Dario apoyado en un poste en la calle con chaqueta marrón y gafas de sol"></button>
+        <button class="zoom revela e5" type="button"><img src="fotos/editorial-5.jpg" srcset="fotos/editorial-5-800.jpg 800w, fotos/editorial-5.jpg 1279w" sizes="(max-width: 899px) 50vw, 45vw" width="1279" height="1600" loading="lazy" alt="Dario en blanco y negro con americana gris"></button>
+        <button class="zoom revela e6" type="button"><img src="fotos/editorial-6.jpg" srcset="fotos/editorial-6-800.jpg 800w, fotos/editorial-6.jpg 1082w" sizes="(max-width: 899px) 50vw, 45vw" width="1082" height="1600" loading="lazy" alt="Dario sentado en el suelo de un estudio blanco con chaqueta negra y vaqueros"></button>
+        <button class="zoom revela e7" type="button"><img src="fotos/editorial-7.jpg" srcset="fotos/editorial-7-800.jpg 800w, fotos/editorial-7.jpg 1105w" sizes="(max-width: 899px) 100vw, 45vw" width="1105" height="1600" loading="lazy" alt="Dario sin camiseta apoyado en una escalera blanca de estudio"></button>
+        <button class="zoom revela e8" type="button"><img src="fotos/editorial-8.jpg" srcset="fotos/editorial-8-800.jpg 800w, fotos/editorial-8.jpg 1067w" sizes="(max-width: 899px) 50vw, 45vw" width="1067" height="1600" loading="lazy" alt="Dario apoyado en una puerta de madera con camiseta de tirantes blanca y pantalón de rayas amarillas"></button>
+        <button class="zoom revela e9" type="button"><img src="fotos/editorial-9.jpg" srcset="fotos/editorial-9-800.jpg 800w, fotos/editorial-9.jpg 1067w" sizes="(max-width: 899px) 50vw, 45vw" width="1067" height="1600" loading="lazy" alt="Dario sentado frente a una pared de ladrillo con camiseta de tirantes y pantalón azul de rayas"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="digitals" data-galeria="Digitals" aria-labelledby="digitals-t">
+    <div class="contenedor">
+      <header class="seccion__cab">
+        <h2 id="digitals-t" class="display">Digitals</h2>
+        <p>Fotos de referencia para casting.</p>
+      </header>
+      <ul class="digitals__grid">
+        <li class="revela"><button class="zoom" type="button"><img src="fotos/digital-1.jpg" srcset="fotos/digital-1-800.jpg 800w, fotos/digital-1.jpg 1067w" sizes="(max-width: 899px) 75vw, 30vw" width="1067" height="1600" loading="lazy" alt="Digital de Dario de frente con camiseta de tirantes negra y vaqueros"></button></li>
+        <li class="revela"><button class="zoom" type="button"><img src="fotos/digital-2.jpg" srcset="fotos/digital-2-800.jpg 800w, fotos/digital-2.jpg 1067w" sizes="(max-width: 899px) 75vw, 30vw" width="1067" height="1600" loading="lazy" alt="Digital de Dario con camiseta de tirantes negra, vaqueros y la mano en el bolsillo"></button></li>
+        <li class="revela"><button class="zoom" type="button"><img src="fotos/digital-3.jpg" srcset="fotos/digital-3-800.jpg 800w, fotos/digital-3.jpg 1067w" sizes="(max-width: 899px) 75vw, 30vw" width="1067" height="1600" loading="lazy" alt="Digital de Dario de cuerpo entero con bañador negro"></button></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="booking" id="booking" aria-labelledby="booking-t">
+    <div class="contenedor">
+      <h2 id="booking-t" class="display">Booking</h2>
+      <div class="booking__grid">
+        <div class="booking__intro">
+          <p>Dario trabaja a través de Blow Models. Escribe a la agencia para disponibilidad, castings y presupuestos.</p>
+          <a class="btn btn--negro" href="mailto:contact@blowmodels.com?subject=Booking%20Dario%20Ortega">contact@blowmodels.com</a>
+          <ul class="enlaces">
+            <li><a href="https://blowmodels.com/men/dario-ortega/?pdf=156989" target="_blank" rel="noopener">Comp card en PDF</a></li>
+            <li><a href="https://www.instagram.com/dario_otga" target="_blank" rel="noopener">Instagram @dario_otga</a></li>
+            <li><a href="https://blowmodels.com/men/dario-ortega/" target="_blank" rel="noopener">Perfil en Blow Models</a></li>
+          </ul>
+        </div>
+        <div class="oficina">
+          <h3>Barcelona</h3>
+          <address>Almogàvers 166, local<br>08018 Barcelona<br><a href="tel:+34932681176">+34 932 681 176</a></address>
+        </div>
+        <div class="oficina">
+          <h3>Madrid</h3>
+          <address>Gran Vía 64, 2.º D<br>28013 Madrid<br><a href="tel:+34917659653">+34 917 659 653</a></address>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <p>Fotografías: Blow Models, Instagram de Dario y sus autores. Victoria Shoes © 2025 Sopa de ganso Estudio. Logos propiedad de sus marcas.</p>
+    <p>Propuesta de diseño. No es la web oficial.</p>
+  </div>
+</footer>
+
+<dialog class="menu" aria-label="Menú">
+  <div class="menu__barra">
+    <a class="nav__marca display" href="#top">Dario Ortega</a>
+    <button class="btn nav__menu" type="button" data-cerrar autofocus>Cerrar</button>
+  </div>
+  <nav aria-label="Secciones">
+    <ul class="menu__links">
+      <li style="--i:0"><a class="display" href="#ficha">Ficha</a></li>
+      <li style="--i:1"><a class="display" href="#pista">Pista</a></li>
+      <li style="--i:2"><a class="display" href="#trabajos">Trabajos</a></li>
+      <li style="--i:3"><a class="display" href="#editorial">Editorial</a></li>
+      <li style="--i:4"><a class="display" href="#digitals">Digitals</a></li>
+      <li style="--i:5"><a class="display" href="#booking">Booking</a></li>
+    </ul>
+  </nav>
+  <a class="btn btn--negro" href="mailto:contact@blowmodels.com?subject=Booking%20Dario%20Ortega">contact@blowmodels.com</a>
+</dialog>
+
+<dialog class="visor" aria-label="Visor de fotos">
+  <div class="visor__barra">
+    <p class="visor__pie tabular" aria-live="polite"></p>
+    <button class="btn btn--linea" type="button" data-cerrar>Cerrar</button>
+  </div>
+  <div class="visor__cuerpo">
+    <button class="flecha" type="button" aria-label="Foto anterior" data-paso="-1">←</button>
+    <img class="visor__img" sizes="100vw" alt="">
+    <button class="flecha" type="button" aria-label="Foto siguiente" data-paso="1">→</button>
+  </div>
+</dialog>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const nav = document.querySelector('.nav');
+  const marcaBorde = () => nav.classList.toggle('con-borde', scrollY > 8);
+  addEventListener('scroll', marcaBorde, { passive: true });
+  marcaBorde();
+
+  const io = new IntersectionObserver((entradas) => {
+    for (const e of entradas) {
+      if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); }
+    }
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.revela, .ficha').forEach((el) => io.observe(el));
+
+  const enlaces = [...document.querySelectorAll('.nav__links a')];
+  const espia = new IntersectionObserver((entradas) => {
+    for (const e of entradas) {
+      if (!e.isIntersecting) continue;
+      for (const a of enlaces) {
+        if (a.hash === '#' + e.target.id) a.setAttribute('aria-current', 'true');
+        else a.removeAttribute('aria-current');
+      }
+    }
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  ['top', 'ficha', 'pista', 'trabajos', 'editorial', 'digitals', 'booking'].forEach((id) => espia.observe(document.getElementById(id)));
+
+  document.querySelectorAll('.campana').forEach((campana) => {
+    const carril = campana.querySelector('.carril');
+    const items = [...carril.children];
+    const contador = campana.querySelector('.contador');
+    const [prev, next] = campana.querySelectorAll('.campana__ctrl .flecha');
+    const relleno = () => parseFloat(getComputedStyle(carril).scrollPaddingLeft) || 0;
+    const actual = () => {
+      const max = carril.scrollWidth - carril.clientWidth;
+      if (carril.scrollLeft >= max - 2) return items.length - 1;
+      const x = carril.scrollLeft + relleno();
+      let mejor = 0;
+      items.forEach((it, i) => {
+        if (Math.abs(it.offsetLeft - x) < Math.abs(items[mejor].offsetLeft - x)) mejor = i;
+      });
+      return mejor;
+    };
+    const pintar = () => {
+      const max = carril.scrollWidth - carril.clientWidth;
+      const sinScroll = max <= 2;
+      campana.classList.toggle('sin-scroll', sinScroll);
+      contador.textContent = sinScroll ? `${items.length} ${items.length === 1 ? 'foto' : 'fotos'}` : `${actual() + 1} / ${items.length}`;
+      if (!prev) return;
+      prev.disabled = carril.scrollLeft <= 2;
+      next.disabled = carril.scrollLeft >= max - 2;
+    };
+    let pendiente = 0;
+    const programar = () => { if (!pendiente) pendiente = requestAnimationFrame(() => { pendiente = 0; pintar(); }); };
+    carril.addEventListener('scroll', programar, { passive: true });
+    addEventListener('resize', programar);
+    carril.querySelectorAll('img').forEach((img) => img.addEventListener('load', programar));
+    campana.querySelectorAll('.campana__ctrl .flecha').forEach((b) => b.addEventListener('click', () => {
+      const destino = Math.min(items.length - 1, Math.max(0, actual() + Number(b.dataset.dir)));
+      carril.scrollTo({ left: items[destino].offsetLeft - relleno(), behavior: reduce ? 'auto' : 'smooth' });
+    }));
+    pintar();
+  });
+
+  const visor = document.querySelector('.visor');
+  const visorImg = visor.querySelector('.visor__img');
+  const visorPie = visor.querySelector('.visor__pie');
+  let grupo = [], indice = 0, titulo = '';
+  const mostrar = (i) => {
+    indice = (i + grupo.length) % grupo.length;
+    const img = grupo[indice].querySelector('img');
+    visorImg.srcset = img.srcset;
+    visorImg.src = img.src;
+    visorImg.alt = img.alt;
+    visorPie.textContent = `${titulo} · ${indice + 1} / ${grupo.length}`;
+  };
+  document.addEventListener('click', (e) => {
+    const boton = e.target.closest('.zoom');
+    if (!boton) return;
+    const galeria = boton.closest('[data-galeria]');
+    grupo = [...galeria.querySelectorAll('.zoom')];
+    titulo = galeria.dataset.galeria;
+    mostrar(grupo.indexOf(boton));
+    visor.showModal();
+  });
+  visor.addEventListener('click', (e) => {
+    if (e.target === visor || e.target.closest('[data-cerrar]')) visor.close();
+    const paso = e.target.closest('[data-paso]');
+    if (paso) mostrar(indice + Number(paso.dataset.paso));
+  });
+  visor.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') mostrar(indice - 1);
+    if (e.key === 'ArrowRight') mostrar(indice + 1);
+  });
+  let x0 = null, y0 = 0;
+  visorImg.addEventListener('pointerdown', (e) => { x0 = e.clientX; y0 = e.clientY; });
+  visorImg.addEventListener('pointercancel', () => { x0 = null; });
+  visorImg.addEventListener('pointerup', (e) => {
+    if (x0 === null) return;
+    const dx = e.clientX - x0, dy = e.clientY - y0;
+    x0 = null;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) mostrar(indice + (dx < 0 ? 1 : -1));
+  });
+
+  const pintarClip = (c) => {
+    const accion = 'pausado' in c.dataset ? 'Reproducir' : 'Pausar';
+    c.querySelector('.clip__estado').textContent = accion;
+    c.setAttribute('aria-label', `${accion} vídeo: ${c.dataset.desc}`);
+  };
+  const vigia = new IntersectionObserver((entradas) => {
+    for (const e of entradas) {
+      const v = e.target.querySelector('video');
+      if (e.isIntersecting && !('pausado' in e.target.dataset)) v.play().catch(() => {});
+      else v.pause();
+    }
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.clip').forEach((c) => {
+    const v = c.querySelector('video');
+    if (reduce) c.dataset.pausado = '';
+    pintarClip(c);
+    c.addEventListener('click', () => {
+      if ('pausado' in c.dataset) { delete c.dataset.pausado; v.play().catch(() => {}); }
+      else { c.dataset.pausado = ''; v.pause(); }
+      pintarClip(c);
+    });
+    vigia.observe(c);
+  });
+
+  const menu = document.querySelector('.menu');
+  document.querySelector('.nav .nav__menu').addEventListener('click', () => menu.showModal());
+  menu.addEventListener('click', (e) => { if (e.target.closest('a, [data-cerrar]')) menu.close(); });
+
+  if (matchMedia('(hover: hover) and (pointer: fine)').matches && !reduce) {
+    const lista = document.querySelector('.indice');
+    const preview = document.querySelector('.preview');
+    let x = 0, y = 0, cx = 0, cy = 0, raf = 0;
+    const paso = () => {
+      cx += (x - cx) * 0.18; cy += (y - cy) * 0.18;
+      preview.style.translate = `${cx}px ${cy}px`;
+      raf = Math.abs(x - cx) + Math.abs(y - cy) > 0.5 ? requestAnimationFrame(paso) : 0;
+    };
+    lista.addEventListener('pointerenter', (e) => { cx = x = e.clientX; cy = y = e.clientY; paso(); });
+    lista.addEventListener('pointermove', (e) => { x = e.clientX; y = e.clientY; if (!raf) raf = requestAnimationFrame(paso); });
+    lista.addEventListener('pointerleave', () => preview.classList.remove('on'));
+    lista.querySelectorAll('a').forEach((a) => a.addEventListener('pointerenter', () => {
+      preview.src = a.dataset.preview;
+      preview.classList.add('on');
+    }));
+  }
+})();
+</script>
+</body>
+</html>
