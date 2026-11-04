@@ -233,22 +233,6 @@ button { font: inherit; color: inherit; }
   .marcas img { height: var(--h); }
 }
 
-/* Pista */
-.pista__grid { display: grid; gap: var(--sp-7); }
-.pista__foto img { width: 100%; }
-.pista__texto { display: grid; gap: var(--sp-6); align-content: end; }
-.pista__texto > p { font-size: 1.25rem; line-height: 1.5; }
-.registros { border-top: 1px solid var(--tinta); }
-.registros > div { display: grid; gap: var(--sp-2); padding-block: var(--sp-4); border-bottom: 1px solid var(--tinta); }
-.registros dt { grid-row: 2; line-height: 1.4; }
-.registros dd { grid-row: 1; font-size: clamp(2.5rem, 4vw, 3rem); line-height: 1; }
-.pista__texto > .pista__fuente { font-size: 0.875rem; line-height: 1.5; color: var(--color-texto-2); }
-@media (min-width: 900px), (orientation: landscape) and (max-height: 500px) {
-  .pista__grid { grid-template-columns: 5fr 7fr; align-items: end; }
-  .registros > div { grid-template-columns: 9rem 1fr; gap: var(--sp-5); align-items: baseline; }
-  .registros dt { grid-column: 2; grid-row: 1; }
-  .registros dd { grid-column: 1; }
-}
 
 /* Ficha: cinta métrica */
 .medidas { display: grid; gap: var(--sp-4); }
@@ -483,7 +467,6 @@ button { font: inherit; color: inherit; }
     <nav aria-label="Secciones">
       <ul class="nav__links">
         <li><a href="#ficha">Ficha</a></li>
-        <li><a href="#pista">Pista</a></li>
         <li><a href="#trabajos">Trabajos</a></li>
         <li><a href="#editorial">Editorial</a></li>
         <li><a href="#digitals">Digitals</a></li>
@@ -564,29 +547,6 @@ button { font: inherit; color: inherit; }
           <dd><span class="valor">Castaño</span><img src="fotos/pelo.jpg" width="380" height="110" loading="lazy" alt="Detalle del pelo castaño de Dario"></dd>
         </div>
       </dl>
-    </div>
-  </section>
-
-  <section class="seccion" id="pista" aria-labelledby="pista-t">
-    <div class="contenedor">
-      <header class="seccion__cab">
-        <h2 id="pista-t" class="display">Pista</h2>
-        <p>Atleta de 400 m vallas y relevos con la Sociedad Gimnástica de Pontevedra.</p>
-      </header>
-      <div class="pista__grid">
-        <figure class="pista__foto revela">
-          <img src="fotos/atleta.jpg" srcset="fotos/atleta-800.jpg 800w, fotos/atleta.jpg 1200w" sizes="(max-width: 899px) 100vw, 40vw" width="1200" height="1600" loading="lazy" alt="Dario sentado sobre un cajón de salida en una pista de atletismo durante una competición, con dorsal y camiseta de tirantes">
-        </figure>
-        <div class="pista__texto">
-          <p>Más de diez años de atletismo: de sus primeros grupos en Santa Ana, Alcorcón y Vallehermoso al Paufra Team de Pau Fradera. En julio de 2026 se despidió de la competición.</p>
-          <dl class="registros tabular">
-            <div><dt>400 m vallas, semifinal del Campeonato de España en Torrent</dt><dd class="display">52.99</dd></div>
-            <div><dt>4×400 con la S. G. Pontevedra, récord del club</dt><dd class="display">3:10.51</dd></div>
-            <div><dt>Finales absolutas seguidas en el Campeonato de España</dt><dd class="display">2</dd></div>
-          </dl>
-          <p class="pista__fuente">Fuentes: <a href="https://www.sgpontevedra.com/tag/dario-ortega/" target="_blank" rel="noopener">Sociedad Gimnástica de Pontevedra</a> e <a href="https://www.instagram.com/dario_otga/p/DbNcpgxOgob/" target="_blank" rel="noopener">Instagram de Dario</a>.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -817,11 +777,10 @@ button { font: inherit; color: inherit; }
   <nav aria-label="Secciones">
     <ul class="menu__links">
       <li style="--i:0"><a class="display" href="#ficha">Ficha</a></li>
-      <li style="--i:1"><a class="display" href="#pista">Pista</a></li>
-      <li style="--i:2"><a class="display" href="#trabajos">Trabajos</a></li>
-      <li style="--i:3"><a class="display" href="#editorial">Editorial</a></li>
-      <li style="--i:4"><a class="display" href="#digitals">Digitals</a></li>
-      <li style="--i:5"><a class="display" href="#booking">Booking</a></li>
+      <li style="--i:1"><a class="display" href="#trabajos">Trabajos</a></li>
+      <li style="--i:2"><a class="display" href="#editorial">Editorial</a></li>
+      <li style="--i:3"><a class="display" href="#digitals">Digitals</a></li>
+      <li style="--i:4"><a class="display" href="#booking">Booking</a></li>
     </ul>
   </nav>
   <a class="btn btn--negro" href="mailto:contact@blowmodels.com?subject=Booking%20Dario%20Ortega">contact@blowmodels.com</a>
@@ -865,7 +824,7 @@ button { font: inherit; color: inherit; }
       }
     }
   }, { rootMargin: '-45% 0px -50% 0px' });
-  ['top', 'ficha', 'pista', 'trabajos', 'editorial', 'digitals', 'booking'].forEach((id) => espia.observe(document.getElementById(id)));
+  ['top', 'ficha', 'trabajos', 'editorial', 'digitals', 'booking'].forEach((id) => espia.observe(document.getElementById(id)));
 
   document.querySelectorAll('.campana').forEach((campana) => {
     const carril = campana.querySelector('.carril');
